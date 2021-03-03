@@ -15,8 +15,39 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:text="点击按钮生成随机数" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最小值"
+            android:textSize="15sp"/>
+        <EditText
+            android:id="@+id/et_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最大值"
+            android:textSize="15sp"/>
+        <EditText
+            android:id="@+id/et_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:text="1"/>
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_generate"
+        android:onClick="Generate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
