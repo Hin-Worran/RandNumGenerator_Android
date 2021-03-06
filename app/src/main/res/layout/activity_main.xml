@@ -23,26 +23,109 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="最小值"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/normalTextSize"/>
         <EditText
             android:id="@+id/et_min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
-            android:text="0"/>
+            android:text="0"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@id/et_max"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="最大值"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/normalTextSize"/>
         <EditText
             android:id="@+id/et_max"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:inputType="number"
+            android:selectAllOnFocus="true"
             android:text="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="要生成几个随机数"
+            android:textSize="@dimen/normalTextSize"/>
+        <EditText
+            android:id="@+id/et_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:text="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="重复"
+            android:textSize="@dimen/normalTextSize"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rbt_repeatY"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yes"/>
+            <RadioButton
+                android:id="@+id/rbt_repeatN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no"/>
+
+        </RadioGroup>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="排序"
+            android:textSize="@dimen/normalTextSize"/>
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rbt_rankY"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yes"/>
+            <RadioButton
+                android:id="@+id/rbt_rankN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no"/>
+
+        </RadioGroup>
     </LinearLayout>
 
     <Button
@@ -53,5 +136,6 @@
         android:textSize="20sp"
         android:layout_margin="10dp"
         android:text="生成"/>
+
 
 </LinearLayout>
