@@ -32,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
     public void Generate(View view) {
         minNum=Integer.parseInt(etMin.getText().toString());
         maxNum=Integer.parseInt(etMax.getText().toString());
-        randNum=minNum+r.nextInt(maxNum-minNum+1);
-        tvOut.setText("随机数是"+randNum);
+        if(maxNum>minNum) {
+            randNum = minNum + r.nextInt(maxNum - minNum + 1);
+            tvOut.setText("随机数是"+randNum);
+        }
+        else tvOut.setText("最大值必须大于最小值！");
+
     }
 }
