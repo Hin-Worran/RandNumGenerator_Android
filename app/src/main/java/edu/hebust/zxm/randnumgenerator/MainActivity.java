@@ -77,9 +77,7 @@ public class MainActivity extends AppCompatActivity {
         //创建AlertDialog.Builder对象
         myDialog.setTitle("Hello! My friend!");
         //说明文本
-        myDialog.setMessage("这是一个用来创建随机数的小程序，他有个炫酷的名字——世界坍缩者！\n" +
-                "祝您使用愉快！\n" +
-                "使用说明？这么简单的东西还要说明？？不是吧不是吧，哈哈哈哈哈哈哈哈哈！");
+        myDialog.setMessage(R.string.说明);
         myDialog.setPositiveButton("知道了！",null);
         AlertDialog alertDialog=myDialog.create();
         alertDialog.show();
