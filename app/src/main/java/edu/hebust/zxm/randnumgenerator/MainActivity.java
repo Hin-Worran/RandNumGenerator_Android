@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Find View
+        //Find Views
         tvOut=findViewById(R.id.tv_RanNum);
         btGenerate=findViewById(R.id.btn_generate);
         etMin=findViewById(R.id.et_min);
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         //说明文本
         myDialog.setMessage("这是一个用来创建随机数的小程序，他有个炫酷的名字——世界坍缩者！\n" +
                 "祝您使用愉快！\n" +
-                "使用说明？不需要！这么简单的东西还要说明？？不是吧不是吧，哈哈哈哈哈哈哈哈哈！");
+                "使用说明？这么简单的东西还要说明？？不是吧不是吧，哈哈哈哈哈哈哈哈哈！");
         myDialog.setPositiveButton("知道了！",null);
         AlertDialog alertDialog=myDialog.create();
         alertDialog.show();
