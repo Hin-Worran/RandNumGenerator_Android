@@ -14,7 +14,8 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    Random r=new Random();
+    //定义变量
+    Random r=new Random();      //定义生成随机数的方法
     int minNum;
     int maxNum;
     int amount;
@@ -26,38 +27,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etNum;
     RadioButton reY;
     RadioButton reN;
-    int[] Get_RandNum(int n,int min,int max){
-        int[] output=new int[n];
-        for(int i=0;i<n;i++){
-            output[i]=min + r.nextInt(max - min + 1);
-        }
-        return output;
-    }
 
-    int[] Get_NoRepeat(int n,int min,int max){
-        int[] output=new int[n];
-        for (int i=0;i<n;){
-            int rand=min + r.nextInt(max - min + 1);
-            boolean rep=false;
-            for (int j=0;j<i;j++){
-                if(rand==output[j]){
-                    rep=true;
-                    break;
-                }
-            }
-            if (!rep){
-                output[i]=rand;
-                i++;
-            }
-        }
-        return output;
-    }
 
-    void Out_RandNum(TextView tv,int[] rand,int n){
-        for (int i=0;i<n;i++){
-            tv.setText(tv.getText().toString()+rand[i]+"\t;");
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    //生成随机数的主程序
     public void Generate(View view) {
         tvOut.setText("生成的随机数是：\n");
         minNum=Integer.parseInt(etMin.getText().toString());    //获取输入框的值
@@ -92,14 +64,14 @@ public class MainActivity extends AppCompatActivity {
             tvOut.setText("随机数的数量不能小于零");
             return;
         }
-        if(maxNum<=minNum) {     //最大值应大于最小值
+        if(maxNum<=minNum) {                                    //最大值应大于最小值
             tvOut.setText("最大值必须大于最小值！");
             return;
             }
-        if(reY.isChecked())         //生成重复的随机数
+        if(reY.isChecked())                                      //生成重复的随机数
             randNum = Get_RandNum(amount,minNum,maxNum);
-        else if (reN.isChecked()){      //生成不重复的随机数
-            if (amount>maxNum-minNum+1) {  //随机数的数目应小于总数
+        else if (reN.isChecked()){                                 //生成不重复的随机数
+            if (amount>maxNum-minNum+1) {                          //随机数的数目应小于总数
                 tvOut.setText("随机数的数目应小于总数");
                 return;
             }
@@ -109,4 +81,41 @@ public class MainActivity extends AppCompatActivity {
         }
         Out_RandNum(tvOut,randNum,amount);  //输出随机数
     }
+
+    //获取随机数（重复的）
+    int[] Get_RandNum(int n,int min,int max){
+        int[] output=new int[n];
+        for(int i=0;i<n;i++){
+            output[i]=min + r.nextInt(max - min + 1);
+        }
+        return output;
+    }
+
+    //获取随机数（不重复的）
+    int[] Get_NoRepeat(int n,int min,int max){
+        int[] output=new int[n];
+        for (int i=0;i<n;){
+            int rand=min + r.nextInt(max - min + 1);
+            boolean rep=false;
+            for (int j=0;j<i;j++){
+                if(rand==output[j]){
+                    rep=true;
+                    break;
+                }
+            }
+            if (!rep){
+                output[i]=rand;
+                i++;
+            }
+        }
+        return output;
+    }
+
+    //通过TextView输出随机数
+    void Out_RandNum(TextView tv,int[] rand,int n){
+        for (int i=0;i<n;i++){
+            tv.setText(tv.getText().toString()+rand[i]+"\t;");
+        }
+    }
+
 }
