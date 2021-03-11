@@ -1,5 +1,6 @@
 package edu.hebust.zxm.randnumgenerator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.util.Function;
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-            if (rep==false){
+            if (!rep){
                 output[i]=rand;
                 i++;
             }
@@ -62,13 +63,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvOut=(TextView)findViewById(R.id.tv_RanNum);
-        btGenerate=(Button)findViewById(R.id.btn_generate);
-        etMin=(EditText)findViewById(R.id.et_min);
-        etMax=(EditText)findViewById(R.id.et_max);
-        etNum=(EditText)findViewById(R.id.et_num);
-        reY=(RadioButton)findViewById(R.id.rbt_repeatY);
-        reN=(RadioButton)findViewById(R.id.rbt_repeatN);
+        //Find View
+        tvOut=findViewById(R.id.tv_RanNum);
+        btGenerate=findViewById(R.id.btn_generate);
+        etMin=findViewById(R.id.et_min);
+        etMax=findViewById(R.id.et_max);
+        etNum=findViewById(R.id.et_num);
+        reY=findViewById(R.id.rbt_repeatY);
+        reN=findViewById(R.id.rbt_repeatN);
+
+        //创建开始弹出对话框
+        AlertDialog.Builder myDialog=new AlertDialog.Builder(MainActivity.this);
+        //创建AlertDialog.Builder对象
+        myDialog.setTitle("Hello! My friend!");
+        //说明文本
+        myDialog.setMessage("这是一个用来创建随机数的小程序，他有个炫酷的名字——世界坍缩者！\n" +
+                "祝您使用愉快！\n" +
+                "使用说明？不需要！这么简单的东西还要说明？？不是吧不是吧，哈哈哈哈哈哈哈哈哈！");
+        myDialog.setPositiveButton("知道了！",null);
+        AlertDialog alertDialog=myDialog.create();
+        alertDialog.show();
     }
 
     public void Generate(View view) {
