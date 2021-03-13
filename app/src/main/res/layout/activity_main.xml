@@ -122,17 +122,17 @@
             android:layout_weight="1"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/rbt_rankUp"
+                android:id="@+id/rbt_sortUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="升序"/>
             <RadioButton
-                android:id="@+id/rbt_rankDown"
+                android:id="@+id/rbt_sortDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="降序"/>
             <RadioButton
-                android:id="@+id/rbt_rankNo"
+                android:id="@+id/rbt_sortNo"
                 android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

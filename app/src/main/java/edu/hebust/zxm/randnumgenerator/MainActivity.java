@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     EditText etNum;
     RadioButton reY;
     RadioButton reN;
+    RadioButton sortUp;
+    RadioButton sortDown;
+    RadioButton sortNo;
 
 
 
@@ -42,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
         etNum=findViewById(R.id.et_num);
         reY=findViewById(R.id.rbt_repeatY);
         reN=findViewById(R.id.rbt_repeatN);
+        sortUp=findViewById(R.id.rbt_sortUp);
+        sortDown=findViewById(R.id.rbt_sortDown);
+        sortNo=findViewById(R.id.rbt_sortNo);
 
         //创建开始弹出对话框
         AlertDialog.Builder myDialog=new AlertDialog.Builder(MainActivity.this);
@@ -60,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         minNum=Integer.parseInt(etMin.getText().toString());    //获取输入框的值
         maxNum=Integer.parseInt(etMax.getText().toString());
         amount=Integer.parseInt(etNum.getText().toString());
+        //判断逻辑
         if(amount<=0){
             tvOut.setText("随机数的数量不能小于零");
             return;
@@ -68,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             tvOut.setText("最大值必须大于最小值！");
             return;
             }
+        //生成随机数
         if(reY.isChecked())                                      //生成重复的随机数
             randNum = Get_RandNum(amount,minNum,maxNum);
         else if (reN.isChecked()){                                 //生成不重复的随机数
@@ -77,9 +86,20 @@ public class MainActivity extends AppCompatActivity {
             }
             else
                 randNum = Get_NoRepeat(amount, minNum, maxNum);
-
         }
-        Out_RandNum(tvOut,randNum,amount);  //输出随机数
+        //给随机数排序
+        if(sortUp.isChecked())          //升序
+            Arrays.sort(randNum);
+        else if (sortDown.isChecked()){         //降序
+            Arrays.sort(randNum);
+            for (int i=0;i<(int)(amount/2);i++){
+                int x=randNum[i];
+                randNum[i]=randNum[amount-i-1];
+                randNum[amount-i-1]=x;
+            }
+        }
+        //输出随机数
+        Out_RandNum(tvOut,randNum,amount);
     }
 
     //获取随机数（重复的）
@@ -117,5 +137,7 @@ public class MainActivity extends AppCompatActivity {
             tv.setText(tv.getText().toString()+rand[i]+"\t;");
         }
     }
+
+
 
 }
