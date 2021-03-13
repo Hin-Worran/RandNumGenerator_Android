@@ -79,7 +79,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <TextView
-            android:layout_weight="1"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="重复"
@@ -102,8 +102,16 @@
                 android:text="@string/no"/>
 
         </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
         <TextView
-            android:layout_weight="1"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="排序"
@@ -114,18 +122,26 @@
             android:layout_weight="1"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/rbt_rankY"
+                android:id="@+id/rbt_rankUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="升序"/>
+            <RadioButton
+                android:id="@+id/rbt_rankDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="降序"/>
+            <RadioButton
+                android:id="@+id/rbt_rankNo"
                 android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/yes"/>
-            <RadioButton
-                android:id="@+id/rbt_rankN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/no"/>
+                android:text="乱序"/>
 
         </RadioGroup>
+
+
+
     </LinearLayout>
 
     <Button
